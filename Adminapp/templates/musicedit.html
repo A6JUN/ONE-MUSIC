@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-10 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">EDIT DETAILS</h4>
+                  <p class="card-description">
+                    add music here
+                  </p>
+                  <form method="post" action="{% url 'catupdate' dataid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group">
+                    <label>Select Category</label>
+                    <select name="category">
+                      <option  >{{data.category}}</option>
+                        {% for i in data2 %}
+                      <option >{{i.catname}}</option>
+                        {% endfor %}
+
+
+                    </select>
+<!--                          <span class="select2 select2-container select2-container&#45;&#45;default select2-container&#45;&#45;below select2-container&#45;&#45;focus" dir="ltr" data-select2-id="2" style="width: 433px;"><span class="selection"><span class="select2-selection select2-selection&#45;&#45;single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-a4ta-container"><span class="select2-selection__rendered" id="select2-a4ta-container" role="textbox" aria-readonly="true" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>-->
+                  </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Music Name</label>
+                      <input type="text" class="form-control" value="{{data.mname}}" id="exampleInputName1" placeholder="music name" name="mname">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Composer</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="composer" name="cname" value="{{data.cname}}">
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputPassword4">Password</label>-->
+<!--                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleSelectGender">Gender</label>-->
+<!--                        <select class="form-control" id="exampleSelectGender">-->
+<!--                          <option>Male</option>-->
+<!--                          <option>Female</option>-->
+<!--                        </select>-->
+<!--                      </div>-->
+                      <div class="form-group">
+                      <label>Upload Music
+                          <input type="file" name="music" value="{{data.music}}"><br><br>
+
+
+<!--                      <div class="form-group">-->
+<!--                      <label for="exampleInputCity1">City</label>-->
+<!--                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">-->
+<!--                    </div>-->
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea name="description" class="form-control form-control form-control-lg" id="exampleTextarea1" rows="8">{{data.description}}</textarea>
+                    </div>
+                          </div><br><br>
+                      <div class="form-group">
+                      <label>Upload Thumbnail</label>
+                        <img src="{{data.image.url}}" height="200px" width="200px">
+                          <input type="file" name="image">
+
+                    </div>
+                   <button type="submit" class="btn btn-danger btn-icon-text">
+                          <i class="ti-upload btn-icon-prepend"></i>
+                          Upload
+                        </button>
+               <button style="" type="button" class="btn btn-inverse-warning btn-fw">Cancel</button>                  </form>
+                </div>
+              </div>
+            </div>
+
+
+</body>
+</html>
+{% endblock %}

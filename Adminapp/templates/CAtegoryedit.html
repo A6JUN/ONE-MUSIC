@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-10 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">ADD CATEGORY</h4>
+                  <p class="card-description">
+                    add category here
+                  </p>
+                  <form class="forms-sample" method="post" action="{% url 'categoryupdate' dataid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+<!--                      <div class="form-group">-->
+<!--                    <label>Select Category</label>-->
+<!--                    <select name="category" class="js-example-basic-single w-100 select2-hidden-accessible" data-select2-id="1"-->
+<!--                            tabindex="-1" aria-hidden="true">-->
+<!--                      <option  data-select2-id="16"></option>-->
+<!--                      <option  data-select2-id="16">Rap</option>-->
+<!--                      <option  data-select2-id="17">Malayalam</option>-->
+<!--                      <option  data-select2-id="18">English</option>-->
+<!--                      <option  data-select2-id="19">Hindi</option>-->
+<!--                      <option  data-select2-id="3">Romance</option>-->
+
+<!--                    </select>-->
+<!--&lt;!&ndash;                          <span class="select2 select2-container select2-container&#45;&#45;default select2-container&#45;&#45;below select2-container&#45;&#45;focus" dir="ltr" data-select2-id="2" style="width: 433px;"><span class="selection"><span class="select2-selection select2-selection&#45;&#45;single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-a4ta-container"><span class="select2-selection__rendered" id="select2-a4ta-container" role="textbox" aria-readonly="true" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>&ndash;&gt;-->
+<!--                  </div>-->
+                    <div class="form-group">
+                      <label for="exampleInputName1">Category Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Category name" name="catname" value="{{data.catname}}"><br>
+                        <img src="{{data.catimage.url}}" height="200px" width="200px">
+                      <input type="file"  placeholder="Image" name="catimage"  >
+
+                    </div><br><br>
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputEmail3">Composer</label>-->
+<!--                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="composer" name="cname">-->
+<!--                    </div>-->
+<!--&lt;!&ndash;                    <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <label for="exampleInputPassword4">Password</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <label for="exampleSelectGender">Gender</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <select class="form-control" id="exampleSelectGender">&ndash;&gt;-->
+<!--&lt;!&ndash;                          <option>Male</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                          <option>Female</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </select>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--                      <div class="form-group">-->
+<!--                      <label>Upload Music</label>-->
+<!--                          <input type="file"  name="music" ><br><br>-->
+
+
+<!--&lt;!&ndash;                      <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <label for="exampleInputCity1">City</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleTextarea1">Description</label>-->
+<!--                      <textarea name="description" class="form-control form-control form-control-lg" id="exampleTextarea1" rows="8"></textarea>-->
+<!--                    </div>-->
+<!--                          </div><br><br>-->
+<!--                      <div class="form-group">-->
+<!--                      <label>Upload Thumbnail</label>-->
+<!--                          <input type="file" name="image">-->
+
+<!--                    </div>-->
+                   <button type="submit" class="btn btn-danger btn-icon-text">
+                          <i class="ti-upload btn-icon-prepend"></i>
+                          Update
+                        </button>
+               <button style="" type="button" class="btn btn-inverse-warning btn-fw">Cancel</button>                  </form>
+                </div>
+              </div>
+            </div>
+
+
+</body>
+</html>
+{% endblock %}

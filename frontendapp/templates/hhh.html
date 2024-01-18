@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <title>Play Songs</title>
+
+</head>
+<body>
+<!--    <h1>Play Songs</h1>-->
+
+<!--    {% for i in mus %}-->
+<!--        <button onclick="playSong('{{ i.music.url }}')">{{ i.mname }}</button>-->
+<!--    {% endfor %}-->
+
+<!--    <audio id="audioPlayer" controls>-->
+<!--        Your browser does not support the audio tag.-->
+<!--    </audio>-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+     <h1>Play Songs</h1>
+
+    <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    {% for i in mus %}
+        <p>{{ i.mname }}</p>
+        <a onclick="playSong('{{ i.music.url }}')" >
+            <img src="{{i.image.url}}" >
+
+
+        </a>
+        <hr>
+    {% endfor %}
+
+    <script>
+        function playSong(songUrl) {
+            var audioPlayer = document.getElementById('audioPlayer');
+            var audioSource = document.getElementById('audioSource');
+            audioSource.src = songUrl;
+            audioPlayer.load();
+            audioPlayer.play();
+        }
+    </script>
+    <script>
+        function playSong(songUrl) {
+            var audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = songUrl;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>

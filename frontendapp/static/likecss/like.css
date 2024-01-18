@@ -1,0 +1,20 @@
+.favorite-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#favoriteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.heart {
+    font-size: 30px;
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+}
+
+.heart.favorite {
+    color: red;
+}
